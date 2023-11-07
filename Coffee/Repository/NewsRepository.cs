@@ -17,5 +17,10 @@ namespace Coffee.Repositories
         {
             return await _context.News.ToListAsync();
         }
+
+        public async Task<List<News>> GetOnlyActiveNewsAsync()
+        {
+            return await _context.News.Where(x => x.IsActive).ToListAsync();
+        }
     }
 }
