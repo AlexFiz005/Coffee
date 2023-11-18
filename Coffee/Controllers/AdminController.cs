@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Coffee.Repositories;
+using System.Security.Claims;
 
 namespace Coffee.Controllers
 {
@@ -10,7 +11,7 @@ namespace Coffee.Controllers
     {
         private NewsRepository _newsRepository;
 
-        public AdminController(NewsRepository newsRepository) 
+        public AdminController(NewsRepository newsRepository)
         {
             _newsRepository = newsRepository;
         }
@@ -32,6 +33,30 @@ namespace Coffee.Controllers
             var listNews = await _newsRepository.GetNewsAsync();
 
             return View(listNews);
+        }
+
+        [Route("/admin/news/createNews")]
+        [HttpGet]
+        public async Task<ActionResult> CreateNews()
+        {
+
+            return View();
+        }
+
+        [Route("/admin/news/createNews")]
+        [HttpPost]
+        public async Task<ActionResult> Create(News news)
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            if (!string.IsNullOrEmpty(userId))
+            {
+                news.AuthorId = userId;
+                var result = await _newsRepository.CreateNewsAsync(news);
+            }
+
+
+            return Redirect("/Admin/News");
         }
     }
 }

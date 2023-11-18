@@ -22,5 +22,13 @@ namespace Coffee.Repositories
         {
             return await _context.News.Where(x => x.IsActive).ToListAsync();
         }
+
+        public async Task<News> CreateNewsAsync(News news)
+        {
+            _context.News.Add(news);
+            await _context.SaveChangesAsync();
+
+            return news;
+        }
     }
 }
