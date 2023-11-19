@@ -11,12 +11,29 @@
     <hr />
     <br />
 
-    <ul>
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Text</th>
+            <th>Publication date</th>
+            <th>AuthorId</th>
+            <th>CreateDate</th>
+            <th>IsActive</th>
+            <th></th>
+            <th></th>
+        </tr>
         @foreach (var item in Model)
         {
-            <li>
-                <span>@item.Title</span> <span>@item.Text</span> <span>@item.Date.ToString("yyyy.MM.dd HH:mm")</span> <span>@item.AuthorId</span> <span>@item.CreateDate.ToString("yyyy.MM.dd HH:mm")</span> <span>@item.IsActive</span>
-            </li>
+            <tr>
+                <td>@item.Title</td>
+                <th>@item.Text</th>
+                <th>@item.Date.ToString("yyyy.MM.dd HH:mm")</th>
+                <th>@item.AuthorId</th>
+                <th>@item.CreateDate.ToString("yyyy.MM.dd HH:mm")</th>
+                <th>@item.IsActive</th>
+                <th><a href="">edit</a></th>
+                <th><a href="">delete</a></th>
+            </tr>        
         }
-    </ul>
+    </table>
 </div> 

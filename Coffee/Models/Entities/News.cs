@@ -15,6 +15,7 @@ namespace Coffee.Models.Entities
         public DateTime Date { get; set; }
 
         public string AuthorId { get; set; }
+
         public User Author { get; set; }
 
         public DateTime CreateDate { get; set; }

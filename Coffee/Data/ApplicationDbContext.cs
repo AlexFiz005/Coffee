@@ -35,8 +35,8 @@ namespace Coffee.Data
 
             modelBuilder
                 .Entity<News>()
-                .Property(e => e.IsActive)
-                .HasDefaultValue(true);
+                .Property(e => e.IsActive);
+                //.HasDefaultValue(true);
         }
     }
 }

@@ -26,7 +26,14 @@ namespace Coffee.Repositories
         public async Task<News> CreateNewsAsync(News news)
         {
             _context.News.Add(news);
-            await _context.SaveChangesAsync();
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+
+            }
 
             return news;
         }

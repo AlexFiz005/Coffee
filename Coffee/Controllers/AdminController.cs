@@ -16,8 +16,11 @@ namespace Coffee.Controllers
             _newsRepository = newsRepository;
         }
 
-        public IActionResult Index()
+        // GET: AdminController
+        public ActionResult Index()
         {
+            bool isAdmin = User.IsInRole("Administrator");
+
             return View();
         }
 
@@ -52,6 +55,9 @@ namespace Coffee.Controllers
             if (!string.IsNullOrEmpty(userId))
             {
                 news.AuthorId = userId;
+
+                news.Date = DateTime.SpecifyKind(news.Date, DateTimeKind.Utc);
+
                 var result = await _newsRepository.CreateNewsAsync(news);
             }
 
