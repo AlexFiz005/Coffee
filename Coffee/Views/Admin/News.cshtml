@@ -11,14 +11,14 @@
     <hr />
     <br />
 
-    <table>
+    <table cellpadding="10">
         <tr>
             <th>Title</th>
             <th>Text</th>
             <th>Publication date</th>
             <th>AuthorId</th>
             <th>CreateDate</th>
-            <th>IsActive</th>
+            <th>Is active</th>
             <th></th>
             <th></th>
         </tr>
@@ -26,14 +26,14 @@
         {
             <tr>
                 <td>@item.Title</td>
-                <th>@item.Text</th>
-                <th>@item.Date.ToString("yyyy.MM.dd HH:mm")</th>
-                <th>@item.AuthorId</th>
-                <th>@item.CreateDate.ToString("yyyy.MM.dd HH:mm")</th>
-                <th>@item.IsActive</th>
-                <th><a href="">edit</a></th>
-                <th><a href="">delete</a></th>
-            </tr>        
+                <td>@item.Text</td>
+                <td>@item.Date.ToString("yyyy.MM.dd HH:mm")</td>
+                <td>@item.AuthorId</td>
+                <td>@item.CreateDate.ToString("yyyy.MM.dd HH:mm")</td>
+                <td>@item.IsActive</td>
+                <td><a href="">edit</a></td>
+                <td><a href="">delete</a></td>
+            </tr>
         }
     </table>
-</div> 
+</div>
