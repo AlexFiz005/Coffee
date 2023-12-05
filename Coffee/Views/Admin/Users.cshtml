@@ -6,3 +6,34 @@
 <div class="text-center">
     <h1 class="display-4">Users</h1>
 </div>
+
+
+<br />
+<hr />
+<br />
+
+<table cellpadding="10">
+    <tr>
+        <th>Id</th>
+        <th>UserName</th>
+        <th>Created</th>
+        <th>Email</th>
+        <th>PhoneNumber</th>
+        <th>LockoutEnd</th>
+        <th></th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.UserName</td>
+            <td>@item.Created.ToString("yyyy.MM.dd HH:mm")</td>
+            <td>@item.Email</td>
+            <td>@item.PhoneNumber</td>
+            <td>@item.LockoutEnd?.ToString("yyy.MM.dd HH:mm")</td>
+            <td><a href="/admin/users/block/@item.Id">Block</a></td>
+            <td><a href="/admin/users/unblock/@item.Id">Unblock</a></td>
+        </tr>
+    }
+</table>

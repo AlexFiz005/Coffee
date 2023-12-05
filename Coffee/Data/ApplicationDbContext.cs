@@ -12,6 +12,8 @@ namespace Coffee.Data
         {
         }
 
+        public DbSet<User> Users => Set<User>();
+
         public DbSet<News> News => Set<News>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

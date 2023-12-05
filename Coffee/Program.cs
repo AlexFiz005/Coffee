@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Coffee.Models;
 using Coffee.Repositories;
+using Coffee.Repository;
 
 namespace Coffee
 {
@@ -24,6 +25,8 @@ namespace Coffee
             builder.Services.AddControllersWithViews();
 
             builder.Services.AddTransient<NewsRepository>();
+
+            builder.Services.AddTransient<DataRepository>();
 
             var app = builder.Build();
 
